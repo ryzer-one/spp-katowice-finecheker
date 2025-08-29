@@ -1,0 +1,21 @@
+# Example configuration for finechecker
+
+[plates]
+list = ["SK229TM"]
+
+[mqtt]
+host = "mqtt.local"
+port = 1883
+username = "user"
+password = "pass"
+discovery_prefix = "homeassistant"
+# client_id = "finechecker-01"
+# tls = true
+
+[schedule]
+interval_hours = 24
+jitter_seconds = 300
+
+[browser]
+headless = true
+
