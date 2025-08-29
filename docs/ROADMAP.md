@@ -19,6 +19,8 @@ Use this checklist to track progress. Grouped by milestones.
 - [ ] Create one binary_sensor per plate with attributes
 - [ ] Configurable discovery prefix and device info
 - [ ] Retain last state; publish on changes and on startup
+ - [ ] Default device id to `finechecker-<hostname>`; allow override
+ - [ ] Add `--require-mqtt` flag (fail hard if MQTT unavailable)
 
 ## M3 — Scheduling & Container
 - [ ] Add internal daily scheduler (e.g., APScheduler/cron-like) with jitter/backoff
@@ -30,11 +32,14 @@ Use this checklist to track progress. Grouped by milestones.
 - [ ] Config file (TOML/YAML) with plates list and MQTT settings
 - [ ] Environment variable overrides
 - [ ] Validate config on startup with helpful errors
+ - [ ] Auto-detect config: `./config.toml`, `$HOME/.config/finechecker/config.toml`, or `FINECHECKER_CONFIG`
 
 ## M5 — Reliability & Limits
 - [ ] Centralize selectors/constants (future-proofing)
 - [ ] Implement retry with exponential backoff and rate limiting between plates
 - [ ] Timeouts for page load and element waits
+ - [ ] MQTT connection: friendly errors, reconnect/backoff, soft-continue without MQTT when not required
+ - [ ] Graceful shutdown in daemon mode (signals handling)
 
 ## M6 — Dev Environment & CI
 - [ ] Nix flake for reproducible devShell (python, chromium, chromedriver, ruff, black, pytest)
@@ -49,4 +54,3 @@ Use this checklist to track progress. Grouped by milestones.
 ## M8 — Release
 - [ ] Choose versioning (SemVer) and tag v0.1.0
 - [ ] Publish Docker image (optional)
-
