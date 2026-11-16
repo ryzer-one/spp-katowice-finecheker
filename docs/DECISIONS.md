@@ -21,6 +21,7 @@ This document records agreed decisions for the Katowice SPP fine checker project
 - Attributes include: `message`, `details`, `checked_at` (UTC ISO8601), and implementation `version`.
 - MQTT topics: use Home Assistant discovery (`homeassistant/binary_sensor/<plate>_finechecker/...`).
 - Sensor state: `on` when fines present, `off` otherwise.
+- Availability (daemon mode only): retained `online`/`offline` on `finechecker/availability`, LWT `offline` set at connect; discovery carries `avty_t`, so Home Assistant shows the sensor unavailable when the daemon is down.
 
 ## Deployment & Scheduling
 - Packaging: Python package with console script `finechecker`.

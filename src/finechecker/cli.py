@@ -70,9 +70,10 @@ def run_daemon(args, plates: List[str], headless: bool, interval_hours: int, jit
             mqtt_cfg.password,
             client_id=mqtt_cfg.client_id,
             tls=mqtt_cfg.tls,
+            availability=True,
         )
         for plate in plates:
-            publish_discovery(client, mqtt_cfg.discovery_prefix, plate, device_ident)
+            publish_discovery(client, mqtt_cfg.discovery_prefix, plate, device_ident, availability=True)
 
     while True:
         for plate in plates:
